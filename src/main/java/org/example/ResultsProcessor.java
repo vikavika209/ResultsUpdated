@@ -12,7 +12,7 @@ public class ResultsProcessor {
         this.results = results;
     }
 
-    public List<Result> getFastest(Main.Distance distance, ResultParser.Gender gender, int n){
+    public List<Result> getFastest(Distance distance, Gender gender, int n){
         return results.stream()
                 .filter(result -> result.getDistance().equals(distance))
                 .filter(result -> result.getPerson().getGender().equals(gender))
@@ -21,51 +21,5 @@ public class ResultsProcessor {
                 .collect(Collectors.toList());
     }
 
-    public static class Result {
-        ResultParser.Person person;
-        Main.Distance distance;
-        Duration time;
 
-        public ResultParser.Person getPerson() {
-            return person;
-        }
-
-        public void setPerson(ResultParser.Person person) {
-            this.person = person;
-        }
-
-        public Duration getTime() {
-            return time;
-        }
-
-        public void setTime(Duration time) {
-            this.time = time;
-        }
-
-        public Main.Distance getDistance() {
-            return distance;
-        }
-
-        public void setDistance(Main.Distance distance) {
-            this.distance = distance;
-        }
-
-        public Result() {
-        }
-
-        public Result(ResultParser.Person person, Main.Distance distance, Duration time) {
-            this.person = person;
-            this.distance = distance;
-            this.time = time;
-        }
-
-        @Override
-        public String toString() {
-            return "Result{" +
-                    "person=" + person +
-                    ", distance=" + distance +
-                    ", time=" + time +
-                    '}';
-        }
-    }
 }

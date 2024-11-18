@@ -8,9 +8,9 @@ class ResultParserTest {
     @Test
     void parseResult() {
         ResultParser resultParser = new ResultParser();
-        ResultsProcessor.Result result = resultParser.parseResult("Иван Иванов, М, 10 км, 55:20");
+        Result result = resultParser.parseResult("Иван Иванов, М, 10 км, 55:20");
         Assertions.assertEquals("Иван Иванов", result.getPerson().getName());
-        Assertions.assertEquals(ResultParser.Gender.MALE, result.getPerson().getGender());
-        Assertions.assertEquals(Main.Distance.TEN_KM, result.getDistance());
+        Assertions.assertEquals(Gender.MALE, result.getPerson().getGender());
+        Assertions.assertEquals(Distance.TEN_KM, result.getDistance());
     }
 }

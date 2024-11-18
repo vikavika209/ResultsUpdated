@@ -17,25 +17,7 @@ public class Main {
         ResultsReader resultsReader = applicationContext.getBean(ResultsReader.class);
         var results = resultsReader.readFromFile(Path.of("C:\\Users\\Пользователь_Asus\\IdeaProjects\\Results\\src\\main\\resources\\results.csv"));
         var resultsProcessor = new ResultsProcessor(results);
-        List<ResultsProcessor.Result> fastest = resultsProcessor.getFastest(Distance.TEN_KM, ResultParser.Gender.FEMALE, 1);
+        List<Result> fastest = resultsProcessor.getFastest(Distance.TEN_KM, Gender.FEMALE, 1);
         System.out.println(fastest);
-    }
-
-    public enum Distance {
-        FIVE_KM("5 km"),
-        TEN_KM("10 km");
-
-        private final String code;
-
-        Distance(String code) {
-            this.code = code;
-        }
-
-        public static Distance of(String code){
-            return Stream.of(values())
-                    .filter(d -> Objects.equals(d.code, code))
-                    .findFirst()
-                    .orElseThrow(() -> new IllegalArgumentException("Unknown distance: " + code));
-        }
     }
 }

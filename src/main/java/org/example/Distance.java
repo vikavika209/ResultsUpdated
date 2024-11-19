@@ -4,8 +4,8 @@ import java.util.Objects;
 import java.util.stream.Stream;
 
 public enum Distance {
-    FIVE_KM("5 km"),
-    TEN_KM("10 km");
+    FIVE_KM("5km"),
+    TEN_KM("10km");
 
     private final String code;
 

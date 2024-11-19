@@ -8,6 +8,10 @@ import java.util.stream.Stream;
 
 @Service
 public class ResultParser {
+
+    public ResultParser() {
+    }
+
     public Result parseResult(String line){
         var resultParts = line.split(",");
         var name = resultParts[0];

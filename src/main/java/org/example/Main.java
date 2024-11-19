@@ -2,6 +2,7 @@ package org.example;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.io.ClassPathResource;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -15,7 +16,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ResultsProcessorConfig.class);
         ResultsReader resultsReader = applicationContext.getBean(ResultsReader.class);
-        var results = resultsReader.readFromFile(Path.of("./src/main/resources/results.csv"));
+        var filePath = new ClassPathResource("results.csv").getFile().toPath();
+        var results = resultsReader.readFromFile(filePath);
         var resultsProcessor = new ResultsProcessor(results);
         List<Result> fastest = resultsProcessor.getFastest(Distance.TEN_KM, Gender.FEMALE, 2);
         System.out.println(fastest);

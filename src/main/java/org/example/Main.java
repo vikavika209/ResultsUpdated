@@ -15,9 +15,9 @@ public class Main {
     public static void main(String[] args) throws IOException {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ResultsProcessorConfig.class);
         ResultsReader resultsReader = applicationContext.getBean(ResultsReader.class);
-        var results = resultsReader.readFromFile(Path.of("C:\\Users\\Пользователь_Asus\\IdeaProjects\\Results\\src\\main\\resources\\results.csv"));
+        var results = resultsReader.readFromFile(Path.of("./src/main/resources/results.csv"));
         var resultsProcessor = new ResultsProcessor(results);
-        List<Result> fastest = resultsProcessor.getFastest(Distance.TEN_KM, Gender.FEMALE, 1);
+        List<Result> fastest = resultsProcessor.getFastest(Distance.TEN_KM, Gender.FEMALE, 2);
         System.out.println(fastest);
     }
 }

@@ -1,10 +1,13 @@
 package org.example;
 
+import org.springframework.stereotype.Service;
+
 import java.time.Duration;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class ResultsProcessor {
     private final List<Result> results;
 
